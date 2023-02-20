@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Check if the Proxmark3 device is connected
+if ! lsusb | grep -q "ACR122U"; then
+  echo "Proxmark3 device not found"
+  exit 1
+fi
+
+# Open up the Proxmark3 terminal
+sudo /usr/local/bin/proxmark3 /dev/ttyACM0
